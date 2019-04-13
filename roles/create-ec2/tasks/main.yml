@@ -97,7 +97,7 @@
           Name: "{{ VM_NAME }}"
         wait: yes
         region: "{{ AWS_REGION }}"
-        vpc_subnet_id: default
+        vpc_subnet_id: subnet-3c6b0312
         network:
           assign_public_ip: true
         user_data: |
