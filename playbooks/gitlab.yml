@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  connection: local
+  
+
+  roles:
+    - create-ec2
+    - create-instance-gitlab
