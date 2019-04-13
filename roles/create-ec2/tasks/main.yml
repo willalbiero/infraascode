@@ -22,44 +22,66 @@
         region: "{{ AWS_REGION }}"
         key_material: "{{ lookup('file', '/home/william/.ssh/id_rsa.pub') }}"
 
-    - name: Cria VPC
-      ec2_vpc_net:
-        aws_access_key: "{{ AWS_ACCESS_KEY }}"
-        aws_secret_key: "{{ AWS_SECRET_KEY }}"
-        name: My VPC
-        cidr_block: 172.31.0.0/16
-        region: "{{ AWS_REGION }}"
-        tags:
-          modules: ec2_vpc_net
-          this:
-        tenancy: default
-      register: my_vpc
+#    - name: Cria VPC
+#      ec2_vpc_net:
+#        aws_access_key: "{{ AWS_ACCESS_KEY }}"
+#        aws_secret_key: "{{ AWS_SECRET_KEY }}"
+#        name: My VPC
+#        cidr_block: 172.31.0.0/16
+#        region: "{{ AWS_REGION }}"
+#        tags:
+#          modules: ec2_vpc_net
+#          this:
+#        tenancy: default
+#      register: my_vpc
 
-    - name: Cria Subnet
-      ec2_vpc_subnet:
-        aws_access_key: "{{ AWS_ACCESS_KEY }}"
-        aws_secret_key: "{{ AWS_SECRET_KEY }}"
-        state: present
-        region: "{{ AWS_REGION }}"
-        vpc_id: "{{ my_vpc.vpc.id }}"
-        cidr: 172.31.0.0/16
-      register: my_subnet
+#    - name: Cria Subnet
+#      ec2_vpc_subnet:
+#        aws_access_key: "{{ AWS_ACCESS_KEY }}"
+#        aws_secret_key: "{{ AWS_SECRET_KEY }}"
+#        state: present
+#        region: "{{ AWS_REGION }}"
+#        vpc_id: "{{ my_vpc.vpc.id }}"
+#        cidr: 172.31.0.0/16
+#      register: my_subnet
 
-    - name: Cria Security Group
-      ec2_group:
-        name: "{{ SECURITY_GROUP }}"
-        aws_access_key: "{{ AWS_ACCESS_KEY }}"
-        aws_secret_key: "{{ AWS_SECRET_KEY }}"
-        description: regras de porta para o grupo
-        vpc_id: "{{ my_vpc.vpc.id }}"
-        region: "{{ AWS_REGION }}"
-        rules:
-         - proto: tcp
-           ports:
-           - 22
-           - 80
-           - 443
-           cidr_ip: 0.0.0.0/0
+#    - name: Cria Security Group
+#      ec2_group:
+#        name: "{{ SECURITY_GROUP }}"
+#        aws_access_key: "{{ AWS_ACCESS_KEY }}"
+#        aws_secret_key: "{{ AWS_SECRET_KEY }}"
+#        description: regras de porta para o grupo
+#        vpc_id: "{{ my_vpc.vpc.id }}"
+#        region: "{{ AWS_REGION }}"
+#        rules:
+#         - proto: tcp
+#           ports:
+#           - 22
+#           - 80
+#           - 443
+#           cidr_ip: 0.0.0.0/0
+
+#    - name: Cria VM
+#      ec2_instance:
+#        key_name: "{{ APP_KEY }}"
+#        aws_access_key: "{{ AWS_ACCESS_KEY }}"
+#        aws_secret_key: "{{ AWS_SECRET_KEY }}"
+#        instance_type: t2.micro
+#        image_id: ami-02b043c85d94864a9
+#        security_group: "{{ SECURITY_GROUP }}"
+#        tenancy: default
+#        name: "{{ VM_NAME }}"
+#        tags:
+#          Name: "{{ VM_NAME }}"
+#        wait: yes
+#        region: "{{ AWS_REGION }}"
+#        vpc_subnet_id: "{{ my_subnet.subnet.id }}"
+#        network:
+#          assign_public_ip: true
+#        user_data: |
+#          #!/bin/sh
+#          apt update
+#          apt install apache2
 
     - name: Cria VM
       ec2_instance:
@@ -68,17 +90,17 @@
         aws_secret_key: "{{ AWS_SECRET_KEY }}"
         instance_type: t2.micro
         image_id: ami-02b043c85d94864a9
-        security_group: "{{ SECURITY_GROUP }}"
+        security_group: default
         tenancy: default
         name: "{{ VM_NAME }}"
         tags:
           Name: "{{ VM_NAME }}"
         wait: yes
         region: "{{ AWS_REGION }}"
-        vpc_subnet_id: "{{ my_subnet.subnet.id }}"
+        vpc_subnet_id: default
         network:
           assign_public_ip: true
         user_data: |
           #!/bin/sh
           apt update
-          apt install apache2
+          apt install apache2      
