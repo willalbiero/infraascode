@@ -6,7 +6,7 @@
 
   vars:
        APP_KEY: ssh_key
-       AWS_REGION: us-east-1a
+       AWS_REGION: us-east-1
        VM_NAME: instance_infra
        SECURITY_GROUP: security_group_infra
        AWS_ACCESS_KEY: AKIAIQ4IFEOOKVWUBG7Q
