@@ -33,7 +33,7 @@
           modules: ec2_vpc_net
           this:
         tenancy: default
-        register: my_vpc
+      register: my_vpc
 
     - name: Cria Subnet
       ec2_vpc_subnet:
@@ -43,7 +43,7 @@
         region: "{{ AWS_REGION }}"
         vpc_id: "{{ my_vpc.vpc.id }}"
         cidr: 10.0.1.0/24
-        register: my_subnet
+      register: my_subnet
 
     - name: Cria Security Group
       ec2_group:
