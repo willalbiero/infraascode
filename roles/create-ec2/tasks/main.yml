@@ -51,7 +51,7 @@
         aws_access_key: "{{ AWS_ACCESS_KEY }}"
         aws_secret_key: "{{ AWS_SECRET_KEY }}"
         description: regras de porta para o grupo
-        vpc_id: default
+        vpc_id: vpc-d4348aae
         region: "{{ AWS_REGION }}"
         rules:
          - proto: tcp
