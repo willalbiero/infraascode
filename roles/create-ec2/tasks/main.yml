@@ -14,7 +14,7 @@
 
   tasks:
 
-    - name: Cria EC2_KEY
+    - name: Cria ec2 key
       ec2_key:
         aws_access_key: "{{ AWS_ACCESS_KEY }}"
         aws_secret_key: "{{ AWS_SECRET_KEY }}"
