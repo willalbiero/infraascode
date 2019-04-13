@@ -9,17 +9,17 @@
        AWS_REGION: us-east-1a
        VM_NAME: instance_infra
        SECURITY_GROUP: security_group_infra
-       AWS_ACCESS_KEY: 
-       AWS_SECRET_KEY: 
+       AWS_ACCESS_KEY:
+       AWS_SECRET_KEY:
 
-  tasks: 
+  tasks:
 
     - name: Cria EC2_KEY
-      ec2_key:  
+      ec2_key:
         aws_access_key: "{{ AWS_ACCESS_KEY }}"
         aws_secret_key: "{{ AWS_SECRET_KEY }}"
         name: "{{ AAP_KEY }}"
-        region: "{{ AWS_REGION }}"  
+        region: "{{ AWS_REGION }}"
     
     - name: Cria VPC
       ec2_vpc_net:
@@ -34,7 +34,7 @@
         tenancy: default
         register: my_vpc
 
-    - name: Cria Subnet 
+    - name: Cria Subnet
       ec2_vpc_subnet:
         aws_access_key: "{{ AWS_ACCESS_KEY }}"
         aws_secret_key: "{{ AWS_SECRET_KEY }}"
@@ -45,14 +45,14 @@
         register: my_subnet
 
     - name: Cria Security Group
-      ec2_group: 
+      ec2_group:
         name: "{{ SECURITY_GROUP }}"
         aws_access_key: "{{ AWS_ACCESS_KEY }}"
         aws_secret_key: "{{ AWS_SECRET_KEY }}"
-        description: regras de porta para o grupo 
+        description: regras de porta para o grupo
         vpc_id: "{{ my_vpc.vpc.id }}"
         region: "{{ AWS_REGION }}"
-        rules: 
+        rules:
          - proto: tcp
            ports:
            - 22
@@ -60,7 +60,7 @@
            - 443
            cidr_ip: 0.0.0.0/0
 
-    - name: Cria VM 
+    - name: Cria VM
       ec2_instance:
         key_name: "{{ APP_KEY }}"
         aws_access_key: "{{ AWS_ACCESS_KEY }}"
@@ -75,7 +75,6 @@
         wait: yes
         region: "{{ AWS_REGION }}"
         vpc_subnet_id: "{{ my_subnet.subnet.id }}"
-        network: 
+        network:
           assign_public_ip: true
-
-
+...          
