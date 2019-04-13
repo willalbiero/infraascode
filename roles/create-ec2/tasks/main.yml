@@ -5,7 +5,7 @@
   gather_facts: false
 
   vars:
-       APP_KEY: ssh_key
+       APP_KEY: ssh_key_2
        AWS_REGION: us-east-1
        VM_NAME: instance_infra
        SECURITY_GROUP: rules-group
