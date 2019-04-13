@@ -20,7 +20,11 @@
         aws_secret_key: "{{ AWS_SECRET_KEY }}"
         name: "{{ APP_KEY }}"
         region: "{{ AWS_REGION }}"
-        key_material: "{{ lookup('file', '/home/william/.ssh/id_rsa.pub') }}"
+      register: ec2_my_key
+
+    - name: Salva key ec2
+      copy: content="{{ ec2_my_key.key.private_key }}" dest="./{{ APP_KEY }}.pem" mode=0400
+      when: ec2_my_key.changed  
 
 #    - name: Cria VPC
 #      ec2_vpc_net:
