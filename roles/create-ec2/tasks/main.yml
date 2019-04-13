@@ -8,7 +8,7 @@
        APP_KEY: ssh_key
        AWS_REGION: us-east-1
        VM_NAME: instance_infra
-       SECURITY_GROUP: security_group_infra
+       SECURITY_GROUP: rules-group
        AWS_ACCESS_KEY: AKIAIQ4IFEOOKVWUBG7Q
        AWS_SECRET_KEY: 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
 
@@ -45,21 +45,21 @@
 #        cidr: 172.31.0.0/16
 #      register: my_subnet
 
-#    - name: Cria Security Group
-#      ec2_group:
-#        name: "{{ SECURITY_GROUP }}"
-#        aws_access_key: "{{ AWS_ACCESS_KEY }}"
-#        aws_secret_key: "{{ AWS_SECRET_KEY }}"
-#        description: regras de porta para o grupo
-#        vpc_id: "{{ my_vpc.vpc.id }}"
-#        region: "{{ AWS_REGION }}"
-#        rules:
-#         - proto: tcp
-#           ports:
-#           - 22
-#           - 80
-#           - 443
-#           cidr_ip: 0.0.0.0/0
+    - name: Cria Security Group
+      ec2_group:
+        name: "{{ SECURITY_GROUP }}"
+        aws_access_key: "{{ AWS_ACCESS_KEY }}"
+        aws_secret_key: "{{ AWS_SECRET_KEY }}"
+        description: regras de porta para o grupo
+        vpc_id: "{{ my_vpc.vpc.id }}"
+        region: "{{ AWS_REGION }}"
+        rules:
+         - proto: tcp
+           ports:
+           - 22
+           - 80
+           - 443
+           cidr_ip: 0.0.0.0/0
 
 #    - name: Cria VM
 #      ec2_instance:
@@ -90,7 +90,7 @@
         aws_secret_key: "{{ AWS_SECRET_KEY }}"
         instance_type: t2.micro
         image_id: ami-02b043c85d94864a9
-        security_group: default
+        security_group: "{{ SECURITY_GROUP }}"
         tenancy: default
         name: "{{ VM_NAME }}"
         tags:
