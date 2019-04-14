@@ -3,8 +3,6 @@
   apt:
     update-cache: yes
     
-- name: Install Docker
-  
 - name: Add key
   apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg
