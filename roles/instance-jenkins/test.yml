@@ -10,5 +10,5 @@
         name: apache_teste
         image: jenkins/jenkins:lts
         ports:
-         - "80:80"
-         - "443:443"
+         - "8080:8080"
+         
