@@ -8,7 +8,7 @@
     - name: apache
       docker_container:
         name: apache_teste
-        image: jenkins:lts
+        image: jenkins/jenkins:lts
         ports:
          - "80:80"
          - "443:443"
