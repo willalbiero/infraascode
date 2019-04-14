@@ -2,11 +2,10 @@
 - name: Start container Jenkins
   docker_container:
     name: jenkins
-    hostname: ec2-18-233-153-17.compute-1.amazonaws.com
     image: "jenkins/jenkins:lts"
     ports:
      - "8080:8080"
      - "50000:50000"
-    restart_policy: always
-    volumes:
-      - "/jenkins_home:/var/jenkins_home"
+#    restart_policy: always
+#    volumes:
+#      - "/jenkins_home:/var/jenkins_home"
