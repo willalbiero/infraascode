@@ -22,9 +22,16 @@
     update-cache: yes
     name:
     - python
+    - python-pip
     - docker-ce
     - docker-ce-cli
     - containerd.io 
+
+- name: install docker-py
+  become: true
+  pip:
+    name: docker-py
+    state: latest
 
 - name: Start Docker
   become: true
