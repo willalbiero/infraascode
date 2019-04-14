@@ -1,5 +1,5 @@
-- hosts: all
+- hosts: localhost
   become: true
   roles:
     - create-ec2
-    - install-docker
+#    - install-docker
