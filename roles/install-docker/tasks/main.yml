@@ -5,10 +5,11 @@
     update-cache: yes
     
 - name: Add key
+  become: true
   apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg
     state: present
-    become: yes
+  
 
 - name: add repo
   apt_repository:
