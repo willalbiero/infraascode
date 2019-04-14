@@ -1,8 +1,8 @@
 ---
 - name: Criando recursos EC2
-  hosts: localhost
-  connection: local
-  gather_facts: false
+  #hosts: localhost
+  #connection: local
+  #gather_facts: false
 
   vars:
        APP_KEY: ssh_teste_key
