@@ -12,10 +12,12 @@
   
 
 - name: add repo
+  become: true
   apt_repository:
     repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
 
-- name: install Docker    
+- name: install Docker
+  become: true  
   apt:
     update-cache: yes
     name:
@@ -25,11 +27,13 @@
     - containerd.io 
 
 - name: Start Docker
+  become: true
   systemd:
     state: started
     name: docker
 
 - name: add user to group docker
+  become: true
   user:
     name: ubuntu
     groups: docker
