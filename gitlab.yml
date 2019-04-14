@@ -1,4 +1,7 @@
-- hosts: all
+- hosts: localhost
   roles:
     - create-ec2
+
+- hosts: gitlab
+  roles:
     - install-docker
