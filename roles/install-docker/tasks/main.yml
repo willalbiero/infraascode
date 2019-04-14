@@ -1,18 +1,19 @@
 ---
-#- name: Apt Update
-#  become: true
-#  apt:
-#    update-cache: yes
+- name: Apt Update
+  become: true
+  apt:
+    update-cache: yes
     
 - name: Add key
   apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg
     state: present
 
-#- name: add repo
-#  apt_repository:
-#    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
-    
+- name: add repo
+  apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
+
+- name: install Docker    
   apt:
     update-cache: yes
     name:
