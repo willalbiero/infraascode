@@ -1,0 +1,15 @@
+---
+
+  - name: Apt Update
+    become: true
+    apt:
+      update-cache: yes
+
+  - name: Install Docker 
+    apt: 
+      name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io    
+
+    

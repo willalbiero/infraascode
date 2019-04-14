@@ -104,7 +104,3 @@
         vpc_subnet_id: subnet-3c6b0312
         network:
           assign_public_ip: true
-        user_data: |
-          #!/bin/sh
-          apt update
-          apt install apache2
