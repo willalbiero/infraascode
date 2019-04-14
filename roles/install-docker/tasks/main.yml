@@ -21,10 +21,10 @@
     - docker-ce-cli
     - containerd.io 
 
-- name: Start Docker
-  systemd:
-    state: started
-    name: docker
-  user:
-    name: ubuntu
-    groups: docker
+#- name: Start Docker
+#  systemd:
+#    state: started
+#    name: docker
+#  user:
+#    name: ubuntu
+#    groups: docker
