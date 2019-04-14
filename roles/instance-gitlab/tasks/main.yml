@@ -1,0 +1,17 @@
+---
+- name: Start container GitLab
+  docker_container:
+    name: gitLab
+    hostname: ec2-18-233-153-17.compute-1.amazonaws.com
+    image: "gitlab/gitlab-ce:latest"
+    network_mode: host
+    state: started
+    restart_policy: always
+    ports:
+      - "22:22"
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "/srv/gitlab/config:/etc/gitlab"
+      - "/srv/gitlab/logs:/var/log/gitlab"
+      - "/srv/gitlab/data:/var/opt/gitlab"
