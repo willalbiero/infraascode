@@ -1,6 +1,6 @@
 ---
 - name: Meu teste
-  host: gitlab
+  hosts: gitlab
 
 - tasks:
 
