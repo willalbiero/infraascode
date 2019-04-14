@@ -1,6 +1,7 @@
 ---
 - name: Meu teste
   hosts: gitlab
+  gather_facts: false
 
 - tasks:
 
