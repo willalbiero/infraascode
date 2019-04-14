@@ -1,4 +1,5 @@
 ---
+
 - name: Criando recursos EC2
   hosts: localhost
   connection: local
