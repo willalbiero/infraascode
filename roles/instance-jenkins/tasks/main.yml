@@ -6,7 +6,7 @@
     image: "jenkins/jenkins:lts"
     state: started
     restart_policy: always
-    ports:
+    published_ports:
       - "50000:50000"
       - "8080:8080"
     volumes:
