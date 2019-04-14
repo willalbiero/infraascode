@@ -3,12 +3,10 @@
   apt:
     update-cache: yes
     
-- name: Add key
+- name: Add key and repo
   apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg
     state: present
-
-- name: add repo
   apt_repository:
     repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
     
