@@ -1,9 +1,12 @@
 ---
-- host: gitlab
+- name: Meu teste
+  host: gitlab
 
-- name: apache
-  docker_container:
-   name: apache
-   image: httpd
-   ports:
-    - "80:80  "
+- tasks:
+
+  - name: apache
+    docker_container:
+      name: apache
+      image: httpd
+      ports:
+       - "80:80  "
