@@ -1,5 +1,5 @@
 - hosts: gitlab
-
+  become: true
   roles:
     - create-ec2
     - install-docker
