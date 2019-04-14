@@ -1,7 +1,10 @@
 - hosts: localhost
+  connection: local
+  gather_facts: false
   roles:
     - create-ec2
 
 - hosts: gitlab
+  gather_facts: false
   roles:
     - install-docker
