@@ -2,4 +2,4 @@
 localhost
 
 [gitlab]
-18.233.153.17
+18.233.153.17 ansible_ssh_user=ubuntu
