@@ -1,7 +1,6 @@
 ---
-- hosts: localhost
-  connection: local
+- hosts: gitlab
 
   roles:
     - create-ec2
-    - create-instance-gitlab
+    - install-docker

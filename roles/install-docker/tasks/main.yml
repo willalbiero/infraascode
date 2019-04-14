@@ -1,5 +1,4 @@
 ---
-
   - name: Apt Update
     become: true
     apt:
