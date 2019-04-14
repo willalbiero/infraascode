@@ -1,8 +1,8 @@
 ---
 - name: Apt Update
   become: true
-  apt:
-    update-cache: yes
+#  apt:
+#    update-cache: yes
     
 - name: Add key
   apt_key:
