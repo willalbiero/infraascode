@@ -1,4 +1,4 @@
-- hosts: gitlab
+- hosts: all
   become: true
   roles:
     - create-ec2
