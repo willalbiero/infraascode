@@ -4,11 +4,9 @@
     name: jenkins
     hostname: ec2-18-233-153-17.compute-1.amazonaws.com
     image: "jenkins/jenkins:lts"
-    network_mode: bridge
-    state: started
-    restart_policy: always
     ports:
-      - "50000:50000"
-      - "8080:8080"
+     - "8080:8080"
+     - "50000:50000"
+    restart_policy: always
     volumes:
       - "/jenkins_home:/var/jenkins_home"
