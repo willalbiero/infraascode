@@ -3,11 +3,11 @@
   hosts: gitlab
   gather_facts: false
 
-- tasks:
+  tasks:
 
-  - name: apache
-    docker_container:
-      name: apache
-      image: httpd
-      ports:
-       - "80:80  "
+    - name: apache
+      docker_container:
+        name: apache
+        image: httpd
+        ports:
+         - "80:80  "
