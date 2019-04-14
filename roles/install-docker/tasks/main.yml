@@ -26,6 +26,8 @@
   systemd:
     state: started
     name: docker
+
+- name: add user to group docker
   user:
     name: ubuntu
     groups: docker
