@@ -2,4 +2,4 @@
 localhost
 
 [gitlab]
-18.233.153.17 ansible_ssh_user=ubuntu ansible_ssh_private_key_file=./roles/create-ec2/tasks/ssh_teste_key.pem
+18.233.153.17 ansible_ssh_user=ubuntu ansible_ssh_private_key_file=./roles/create-ec2/tasks/ssh_teste_key.pe
