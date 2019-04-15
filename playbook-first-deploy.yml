@@ -8,4 +8,4 @@
   gather_facts: false
   roles:
 #    - install-docker
-    - instance-jenkins
+#    - instance-jenkins
