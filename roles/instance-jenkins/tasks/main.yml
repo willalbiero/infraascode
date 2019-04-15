@@ -3,6 +3,7 @@
   docker_container:
     name: jenkins
     image: "jenkins/jenkins:lts"
+    privileged: yes
     ports:
      - "8080:8080"
      - "50000:50000"
