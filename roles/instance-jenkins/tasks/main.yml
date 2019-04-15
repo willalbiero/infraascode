@@ -7,5 +7,5 @@
      - "8080:8080"
      - "50000:50000"
 #    restart_policy: always
-    volumes:
-      - "/jenkins_home:/var/jenkins_home"
+#    volumes:
+#      - "/jenkins_home:/var/jenkins_home"
