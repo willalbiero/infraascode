@@ -25,7 +25,7 @@
 - name: Subnet para o VPC
   ec2_vpc_subnet:
     state: present
-    vpc_id: "{{ vpc.vpc_id }}"
+    vpc_id: "{{ vpc.vpc.id }}"
     region: "{{ AWS_REGION }}"
     cidr: "{{ SUBNET_CIDR }}"
     aws_access_key: "{{ AWS_ACCESS_KEY }}"
