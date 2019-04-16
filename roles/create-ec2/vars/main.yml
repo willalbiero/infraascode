@@ -1,6 +1,12 @@
-APP_KEY: ssh_teste_key
+APP_KEY: ssh_key_aws
 AWS_REGION: us-east-1
 VM_NAME: instance_infra
 SECURITY_GROUP: rules-group
+VPC_NAME: my-vpc
+VPC_CIDR: 10.10.0.0/24
+SUBNET_CIDR: 10.10.0.0/26
+SUBNET_NAME: my-subnet
+IGW_NAME: my-igw
+ROUTE_NAME: my-route
 AWS_ACCESS_KEY: AKIAIQ4IFEOOKVWUBG7Q
 AWS_SECRET_KEY: 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

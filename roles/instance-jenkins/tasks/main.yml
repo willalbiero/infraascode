@@ -7,6 +7,8 @@
     ports:
      - "8080:8080"
      - "50000:50000"
+    command: docker exec -it -u root jenkins bash -c "addgroup docker ; usermod -a -G docker jenkins"
 #    restart_policy: always
-#    volumes:
-#      - "/jenkins_home:/var/jenkins_home"
+    volumes:
+     - "/var/run/docker.sock:/var/run/docker.sock"
+     - "/usr/bin/docker:/usr/bin/docker:ro"

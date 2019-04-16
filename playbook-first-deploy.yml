@@ -4,8 +4,8 @@
   roles:
     - create-ec2
 
-- hosts: gitlab
+- hosts: ci
   gather_facts: false
   roles:
-#    - install-docker
+    - install-docker
     - instance-jenkins
