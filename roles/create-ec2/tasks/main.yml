@@ -30,10 +30,10 @@
     vpc_id: "{{ vpc.vpc.id }}"
     region: "{{ AWS_REGION }}"
     cidr: "{{ SUBNET_CIDR }}"
-    map_public: yes
-#    resource_tags:
-#      Name: "{{ SUBNET_NAME }}"
-    register: subnet
+#    map_public: yes
+    resource_tags:
+      Name: "{{ SUBNET_NAME }}"
+  register: subnet
 
 - name: Cria IGW
   ec2_vpc_igw:
@@ -44,7 +44,7 @@
     state:  present
     tags:
       Name: "{{ IGW_NAME }}"
-    register: igw
+  register: igw
 
 - name: Rota IGW
   ec2_vpc_route_table:
