@@ -24,15 +24,15 @@
 
 - name: Subnet para o VPC
   ec2_vpc_subnet:
+    aws_access_key: "{{ AWS_ACCESS_KEY }}"
+    aws_secret_key: "{{ AWS_SECRET_KEY }}"
     state: present
     vpc_id: "{{ vpc.vpc.id }}"
     region: "{{ AWS_REGION }}"
     cidr: "{{ SUBNET_CIDR }}"
-    aws_access_key: "{{ AWS_ACCESS_KEY }}"
-    aws_secret_key: "{{ AWS_SECRET_KEY }}"
     map_public: yes
-    resource_tags:
-      Name: "{{ SUBNET_NAME }}"
+#    resource_tags:
+#      Name: "{{ SUBNET_NAME }}"
     register: subnet
 
 - name: Cria IGW
