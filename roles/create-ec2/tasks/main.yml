@@ -37,7 +37,7 @@
 
 - name: Cria IGW
   ec2_vpc_igw:
-    vpc_id: "{{ vpc.vpc_id }}"
+    vpc_id: "{{ vpc.vpc.id }}"
     region: "{{ AWS_REGION }}"
     aws_access_key: "{{ AWS_ACCESS_KEY }}"
     aws_secret_key: "{{ AWS_SECRET_KEY }}"
@@ -48,7 +48,7 @@
 
 - name: Rota IGW
   ec2_vpc_route_table:
-    vpc_id: "{{ vpc.vpc_id }}"
+    vpc_id: "{{ vpc.vpc.id }}"
     region: "{{ AWS_REGION }}"
     aws_access_key: "{{ AWS_ACCESS_KEY }}"
     aws_secret_key: "{{ AWS_SECRET_KEY }}"
@@ -66,7 +66,7 @@
     aws_access_key: "{{ AWS_ACCESS_KEY }}"
     aws_secret_key: "{{ AWS_SECRET_KEY }}"
     description: fw
-    vpc_id: "{{ vpc.vpc_id }}"
+    vpc_id: "{{ vpc.vpc.id }}"
     region: "{{ AWS_REGION }}"
     rules:
       - proto: tcp
